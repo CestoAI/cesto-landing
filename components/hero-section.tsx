@@ -44,13 +44,14 @@ export function HeroSection() {
           </div>
         }
       >
-        <div className="h-full w-full rounded-2xl overflow-hidden shadow-2xl">
+        <div className="relative w-full h-full flex items-center justify-center bg-black">
           <iframe
-            className="w-full h-full min-h-[400px] md:min-h-[500px]"
+            className="absolute inset-0 w-full h-full border-0"
             src="https://streamable.com/e/dsa92z"
             title="Cesto Demo Video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
+            style={{ objectFit: "cover" }}
           />
         </div>
       </ContainerScroll>

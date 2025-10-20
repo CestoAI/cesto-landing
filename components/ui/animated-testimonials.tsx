@@ -3,7 +3,7 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
 
 type Testimonial = {
@@ -23,10 +23,15 @@ export const AnimatedTestimonials = ({
   className?: string;
 }) => {
   const [active, setActive] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
-  const handleNext = () => {
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleNext = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   const handlePrev = () => {
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -43,10 +48,6 @@ export const AnimatedTestimonials = ({
     }
   }, [autoplay, handleNext]);
 
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
-  };
-
   return (
     <div
       className={cn(
@@ -61,17 +62,21 @@ export const AnimatedTestimonials = ({
               {testimonials.map((testimonial, index) => (
                 <motion.div
                   key={testimonial.src}
-                  initial={{
-                    opacity: 0,
-                    scale: 0.9,
-                    z: -100,
-                    rotate: randomRotateY(),
-                  }}
+                  initial={
+                    mounted
+                      ? {
+                          opacity: 0,
+                          scale: 0.9,
+                          z: -100,
+                          rotate: 0,
+                        }
+                      : false
+                  }
                   animate={{
                     opacity: isActive(index) ? 1 : 0.7,
                     scale: isActive(index) ? 1 : 0.95,
                     z: isActive(index) ? 0 : -100,
-                    rotate: isActive(index) ? 0 : randomRotateY(),
+                    rotate: 0,
                     zIndex: isActive(index)
                       ? 999
                       : testimonials.length + 2 - index,
@@ -81,7 +86,7 @@ export const AnimatedTestimonials = ({
                     opacity: 0,
                     scale: 0.9,
                     z: 100,
-                    rotate: randomRotateY(),
+                    rotate: 0,
                   }}
                   transition={{
                     duration: 0.4,
@@ -105,10 +110,7 @@ export const AnimatedTestimonials = ({
         <div className="flex justify-between flex-col py-4">
           <motion.div
             key={active}
-            initial={{
-              y: 20,
-              opacity: 0,
-            }}
+            initial={mounted ? { y: 20, opacity: 0 } : false}
             animate={{
               y: 0,
               opacity: 1,
@@ -132,11 +134,15 @@ export const AnimatedTestimonials = ({
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
-                  initial={{
-                    filter: "blur(10px)",
-                    opacity: 0,
-                    y: 5,
-                  }}
+                  initial={
+                    mounted
+                      ? {
+                          filter: "blur(10px)",
+                          opacity: 0,
+                          y: 5,
+                        }
+                      : false
+                  }
                   animate={{
                     filter: "blur(0px)",
                     opacity: 1,

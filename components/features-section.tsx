@@ -51,7 +51,7 @@ const features = [
 export function FeaturesSection() {
   const { t } = useI18n();
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-emerald-50/30">
+    <section className="py-18 bg-gradient-to-b from-white to-emerald-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
