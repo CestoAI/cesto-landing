@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { ContactModalProvider } from "@/components/ui/contact-modal";
+import { I18nProvider } from "@/lib/i18n";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -38,7 +39,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.variable} antialiased`}>
-        <ContactModalProvider>{children}</ContactModalProvider>
+        <I18nProvider>
+          <ContactModalProvider>{children}</ContactModalProvider>
+        </I18nProvider>
       </body>
     </html>
   );

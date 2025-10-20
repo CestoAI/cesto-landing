@@ -60,7 +60,7 @@ export function ContactModalProvider({
               <h3 className="text-2xl font-bold text-gray-900">Contact us</h3>
             </div>
             <p className="text-gray-600 mb-6">
-              Tell us a bit about your needs. We'll reach out shortly.
+              Tell us a bit about your needs. We&apos;ll reach out shortly.
             </p>
             <form
               className="space-y-4"

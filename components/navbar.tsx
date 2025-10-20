@@ -2,18 +2,20 @@
 
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/components/ui/contact-modal";
+import { useI18n } from "@/lib/i18n";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const navLinks = [
-  { name: "Features", href: "#features" },
-  { name: "How It Works", href: "#how-it-works" },
-  { name: "Testimonials", href: "#testimonials" },
+  { key: "nav_features", href: "#features" },
+  { key: "nav_how", href: "#how-it-works" },
+  { key: "nav_testimonials", href: "#testimonials" },
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const contact = useContactModal();
+  const { t, toggle, locale } = useI18n();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
@@ -33,18 +35,24 @@ export function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
-                key={link.name}
+                key={link.key}
                 href={link.href}
                 className="text-gray-700 hover:text-[#10b981] font-medium transition-colors"
               >
-                {link.name}
+                {t(link.key)}
               </a>
             ))}
+            <Button
+              className="bg-white text-[#10b981] border border-[#10b981] hover:bg-gray-50 font-semibold"
+              onClick={toggle}
+            >
+              {locale === "es" ? "EN" : "ES"}
+            </Button>
             <Button
               className="bg-[#10b981] hover:bg-[#059669] text-white font-semibold"
               onClick={() => contact.open()}
             >
-              Get Started
+              {t("nav_get_started")}
             </Button>
           </div>
 
@@ -68,14 +76,22 @@ export function Navbar() {
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <a
-                  key={link.name}
+                  key={link.key}
                   href={link.href}
                   className="text-gray-700 hover:text-[#10b981] font-medium transition-colors px-2"
                   onClick={() => setIsOpen(false)}
                 >
-                  {link.name}
+                  {t(link.key)}
                 </a>
               ))}
+              <Button
+                className="bg-white text-[#10b981] border border-[#10b981] font-semibold"
+                onClick={() => {
+                  toggle();
+                }}
+              >
+                {locale === "es" ? "EN" : "ES"}
+              </Button>
               <Button
                 className="bg-[#10b981] hover:bg-[#059669] text-white font-semibold w-full"
                 onClick={() => {
@@ -83,7 +99,7 @@ export function Navbar() {
                   setIsOpen(false);
                 }}
               >
-                Get Started
+                {t("nav_get_started")}
               </Button>
             </div>
           </div>

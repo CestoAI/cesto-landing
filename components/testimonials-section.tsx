@@ -1,8 +1,10 @@
 "use client";
 
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import { useI18n } from "@/lib/i18n";
 
 export function TestimonialsSection() {
+  const { t } = useI18n();
   const testimonials = [
     {
       quote:
@@ -46,11 +48,10 @@ export function TestimonialsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            What Our Clients Say
+            {t("testimonials_title")}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Join thousands of satisfied businesses transforming their food &
-            beverage operations with Cesto
+            {t("testimonials_sub")}
           </p>
         </div>
       </div>

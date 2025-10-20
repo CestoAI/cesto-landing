@@ -4,24 +4,24 @@ import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/components/ui/contact-modal";
 import { Play } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 export function HeroSection() {
   const contact = useContactModal();
+  const { t } = useI18n();
   return (
     <section className="bg-white pt-16">
       <ContainerScroll
         titleComponent={
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
-              Revolutionize Your <br />
-              <span className="text-[#10b981]">Food & Beverage Business</span>
+              {t("hero_title_1")} <br />
+              <span className="text-[#10b981]">{t("hero_title_2")}</span>
               <br />
-              with AI
+              {t("hero_title_3")}
             </h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-medium">
-              Centralize, automate, and streamline your operations with an
-              AI-driven platform that connects buyers and suppliers in one
-              intelligent hub.
+              {t("hero_desc")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
               <Button
@@ -29,7 +29,7 @@ export function HeroSection() {
                 className="bg-[#10b981] hover:bg-[#059669] text-white px-8 py-6 text-lg font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
                 onClick={() => contact.open()}
               >
-                Get Started
+                {t("hero_cta_primary")}
               </Button>
               <Button
                 size="lg"
@@ -38,7 +38,7 @@ export function HeroSection() {
                 onClick={() => contact.open()}
               >
                 <Play className="mr-2 h-5 w-5" />
-                Watch Demo
+                {t("hero_cta_secondary")}
               </Button>
             </div>
           </div>

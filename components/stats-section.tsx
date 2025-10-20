@@ -74,7 +74,7 @@ export function StatsSection() {
           <div className="max-w-3xl mx-auto text-center">
             <Quote className="h-12 w-12 text-white/80 mx-auto mb-6" />
             <blockquote className="text-xl md:text-2xl text-white font-medium mb-6 leading-relaxed">
-              "{testimonials[0].quote}"
+              &ldquo;{testimonials[0].quote}&rdquo;
             </blockquote>
             <div className="text-white/90">
               <div className="font-bold text-lg">{testimonials[0].author}</div>
