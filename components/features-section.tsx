@@ -9,56 +9,51 @@ import {
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
-const features = [
-  {
-    icon: Sparkles,
-    title: "AI-Powered Automation",
-    description:
-      "Leverage artificial intelligence to automate order fulfillment, purchase orders, and documentation. Eliminate manual processes and reduce human error.",
-  },
-  {
-    icon: Users,
-    title: "Centralized Platform",
-    description:
-      "Connect all your suppliers and buyers in one unified hub. Streamline communication and build stronger business relationships.",
-  },
-  {
-    icon: Package,
-    title: "Smart Inventory Management",
-    description:
-      "Real-time inventory tracking with AI-driven insights. Optimize stock levels and prevent shortages or overstock situations.",
-  },
-  {
-    icon: FileText,
-    title: "Automated P.O. Creation",
-    description:
-      "Generate purchase orders automatically based on inventory levels, demand forecasts, and supplier availability. Save hours every week.",
-  },
-  {
-    icon: TrendingDown,
-    title: "Cost Optimization",
-    description:
-      "Intelligent pricing analysis and cost-saving recommendations. Identify opportunities to reduce expenses and improve margins.",
-  },
-  {
-    icon: Globe,
-    title: "Cross-Border Exchange",
-    description:
-      "Seamlessly manage international suppliers and handle multi-currency transactions with built-in compliance support.",
-  },
-];
-
 export function FeaturesSection() {
   const { t } = useI18n();
+
+  const features = [
+    {
+      icon: Sparkles,
+      titleKey: "feature_1_title",
+      descKey: "feature_1_desc",
+    },
+    {
+      icon: Users,
+      titleKey: "feature_2_title",
+      descKey: "feature_2_desc",
+    },
+    {
+      icon: Package,
+      titleKey: "feature_3_title",
+      descKey: "feature_3_desc",
+    },
+    {
+      icon: FileText,
+      titleKey: "feature_4_title",
+      descKey: "feature_4_desc",
+    },
+    {
+      icon: TrendingDown,
+      titleKey: "feature_5_title",
+      descKey: "feature_5_desc",
+    },
+    {
+      icon: Globe,
+      titleKey: "feature_6_title",
+      descKey: "feature_6_desc",
+    },
+  ];
+
   return (
     <section className="py-18 bg-gradient-to-b from-white to-emerald-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-            {t("nav_features")} <span className="text-[#10b981]">Cesto</span>
+            {t("features_title")} <span className="text-[#10b981]">Cesto</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            {t("cta_sub")}
+            {t("features_subtitle")}
           </p>
         </div>
 
@@ -74,10 +69,10 @@ export function FeaturesSection() {
                   <Icon className="h-7 w-7 text-[#10b981] group-hover:text-white transition-colors duration-300" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  {feature.title}
+                  {t(feature.titleKey)}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
+                  {t(feature.descKey)}
                 </p>
               </div>
             );

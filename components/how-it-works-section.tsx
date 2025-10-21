@@ -1,39 +1,41 @@
+"use client";
 import { Link2, Zap, BarChart3 } from "lucide-react";
-
-const steps = [
-  {
-    number: "01",
-    icon: Link2,
-    title: "Connect",
-    description:
-      "Bring all your suppliers and buyers together on one unified platform. No more scattered communications or lost orders.",
-  },
-  {
-    number: "02",
-    icon: Zap,
-    title: "Automate",
-    description:
-      "Let AI handle orders, inventory tracking, purchase order creation, and documentation. Focus on growing your business, not paperwork.",
-  },
-  {
-    number: "03",
-    icon: BarChart3,
-    title: "Optimize",
-    description:
-      "Save time and money with intelligent insights. Reduce costs by up to 30% and reclaim 10+ hours per week.",
-  },
-];
+import { useI18n } from "@/lib/i18n";
 
 export function HowItWorksSection() {
+  const { t } = useI18n();
+
+  const steps = [
+    {
+      number: "01",
+      icon: Link2,
+      titleKey: "how_step1_title",
+      descKey: "how_step1_desc",
+    },
+    {
+      number: "02",
+      icon: Zap,
+      titleKey: "how_step2_title",
+      descKey: "how_step2_desc",
+    },
+    {
+      number: "03",
+      icon: BarChart3,
+      titleKey: "how_step3_title",
+      descKey: "how_step3_desc",
+    },
+  ];
+
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-            How It <span className="text-[#10b981]">Works</span>
+            {t("how_title")}{" "}
+            <span className="text-[#10b981]">{t("how_title_highlight")}</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Three simple steps to transform your business operations
+            {t("how_subtitle")}
           </p>
         </div>
 
@@ -67,10 +69,10 @@ export function HowItWorksSection() {
 
                   {/* Content */}
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {step.title}
+                    {t(step.titleKey)}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    {step.description}
+                    {t(step.descKey)}
                   </p>
                 </div>
               );
