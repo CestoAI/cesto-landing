@@ -59,8 +59,8 @@ export function ContactModalProvider({
               <X className="h-5 w-5 text-gray-600" />
             </button>
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 bg-[#10b981] rounded-lg flex items-center justify-center">
-                <Mail className="h-5 w-5 text-white" />
+              <div className="w-10 h-10 relative flex items-center justify-center">
+                <img src="/logo.png" alt="Cesto AI" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">Contact us</h3>
             </div>
@@ -123,27 +123,27 @@ Enviado desde el formulario de contacto de Cesto`,
                 <input
                   name="name"
                   placeholder="Your name"
-                  className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                   required
                 />
                 <input
                   name="email"
                   type="email"
                   placeholder="Work email"
-                  className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                   required
                 />
               </div>
               <input
                 name="company"
                 placeholder="Company"
-                className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               />
               <textarea
                 name="message"
                 placeholder="How can we help?"
                 rows={4}
-                className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               />
               {submitStatus === "success" && (
                 <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
@@ -175,7 +175,7 @@ Enviado desde el formulario de contacto de Cesto`,
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-md bg-[#10b981] text-white hover:bg-[#059669] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                  className="px-4 py-2 rounded-md bg-primary text-white hover:bg-primary-hover disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                   disabled={isLoading}
                 >
                   {isLoading ? (

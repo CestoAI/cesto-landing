@@ -19,9 +19,12 @@ const dictionaries: Record<Locale, Dictionary> = {
     nav_testimonials: "Clientes",
     nav_get_started: "Empezar",
 
+    hero_badge: "Nueva Generación",
     hero_title_1: "Revoluciona tu",
     hero_title_2: "negocio de Food & Beverage",
     hero_title_3: "con IA",
+    hero_subtitle:
+      "Centraliza, automatiza y optimiza tus operaciones con una plataforma impulsada por IA que conecta compradores y proveedores en un solo hub inteligente.",
     hero_desc:
       "Centraliza, automatiza y optimiza tus operaciones con una plataforma impulsada por IA que conecta compradores y proveedores en un solo hub inteligente.",
     hero_cta_primary: "Empezar",
@@ -103,9 +106,12 @@ const dictionaries: Record<Locale, Dictionary> = {
     nav_testimonials: "Clients",
     nav_get_started: "Get Started",
 
+    hero_badge: "New Generation Platform",
     hero_title_1: "Revolutionize Your",
     hero_title_2: "Food & Beverage Business",
     hero_title_3: "with AI",
+    hero_subtitle:
+      "Centralize, automate, and streamline your operations with an AI-driven platform that connects buyers and suppliers in one intelligent hub.",
     hero_desc:
       "Centralize, automate, and streamline your operations with an AI-driven platform that connects buyers and suppliers in one intelligent hub.",
     hero_cta_primary: "Get Started",

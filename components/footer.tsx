@@ -13,7 +13,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-[#10b981] mb-4">Cesto AI</h3>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 relative">
+                <img src="/logo.png" alt="Cesto AI" className="w-full h-full object-contain" />
+              </div>
+              <h3 className="text-2xl font-bold text-primary">Cesto AI</h3>
+            </div>
             <p className="text-gray-400">{t("footer_brand_desc")}</p>
           </div>
 
